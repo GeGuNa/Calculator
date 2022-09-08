@@ -36,39 +36,48 @@ if (first !== "") {
 
 }
 
-
+  
+function percentage(num, per)
+{
+  return (num/100)*per;
+}
 
 function Qdata() {
+
+const qfirst = parseInt(first);
+const qlast = parseInt(last);
 
 
 switch (Type) {
   case '+':
-    setfirst(parseInt(first)+parseInt(last))
+    setfirst(qfirst+qlast)
     setlast('')
     setType('')
     break;
   case '-':
-    setfirst(parseInt(first)-parseInt(last))
+    setfirst(qfirst-qlast)
     setlast('')
     setType('')
     break;
   case '*':
-    setfirst(parseInt(first)*parseInt(last))
+    setfirst(qfirst*qlast)
     setlast('')
     setType('')
     break;
   case '/':
-    setfirst(parseInt(first)/parseInt(last))
+    setfirst(qfirst/qlast)
     setlast('')
     setType('')
     break;
   case '^':
-    setfirst(parseInt(first)**parseInt(last))
+    setfirst(qfirst**qlast)
     setlast('')
     setType('')
     break;
   case '%':
-    setfirst(parseInt(first)%parseInt(last))
+
+ 
+	setfirst(percentage(qfirst, qlast))
     setlast('')
     setType('')
     break;
