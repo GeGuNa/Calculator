@@ -44,8 +44,8 @@ function percentage(num, per)
 
 function Qdata() {
 
-const qfirst = parseInt(first);
-const qlast = parseInt(last);
+const qfirst = parseFloat(first);
+const qlast = parseFloat(last);
 
 
 switch (Type) {
@@ -102,13 +102,28 @@ setType("")
 
 const setDataz = (num) => {
 
+const qcheck = /\./
+
+// if (qcheck.test(first) == false)
+
+
+if (Type == "") {
+
+if (num == "." && qcheck.test(first) == true)return;
+
+} else {
+
+if (num == "." && qcheck.test(last) == true)return;
+
+}
+
 if (Type === "") {
 
-if (first === "")
+if (first === "")	
 	setfirst(num) 
 else 
-	setfirst(first+""+num) 
-
+	setfirst(first+""+num)  
+	
 } else if (last == "") {
 
 if (last === "")
@@ -123,7 +138,6 @@ if (last === "")
 	setlast(num) 
 else 
 	setlast(last+""+num) 
-
 
 } 
 
@@ -170,7 +184,7 @@ if (Summing!== undefined && Summing!== "" && Type !== undefined && Type!== "") {
 <button className="btn" onClick={()=>setTypee('-')}>-</button>
 <div style={{width:'100%',borderTop:'1px solid #cda0a0'}}>
 <button className="btn" style={{width:'20%',borderRight:'1px solid #cda0a0'}} onClick={() => setDataz(0)}>0</button>
-<button className="btn" style={{width:'30%',borderRight:'1px solid #cda0a0'}}>.</button>
+<button className="btn" onClick={() => setDataz(".")} style={{width:'30%',borderRight:'1px solid #cda0a0'}}>.</button>
 <button className="btn" onClick={Qdata} style={{width:'50%',background:'#'}}>=</button>
 </div>
 </div>
